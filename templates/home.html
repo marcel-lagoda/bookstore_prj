@@ -11,10 +11,10 @@
 <img class="bookcover" src="{% static '/images/docker-in-action.jpg' %}">
 {% if user.is_authenticated %}
   Hi {{ user.email }}!
-  <p><a href="{% url 'logout' %}">Log out</a></p>
+  <p><a href="{% url 'account_logout' %}">Log out</a></p>
 {% else %}
   <p>You are not logged in!</p>
-  <a href="{% url 'login' %}">Log In</a>
-  <a href="{% url 'signup' %}">Sing Up</a>
+  <a href="{% url 'account_login' %}">Log In</a>
+  <a href="{% url 'account_signup' %}">Sing Up</a>
 {% endif %}
 {% endblock %}
