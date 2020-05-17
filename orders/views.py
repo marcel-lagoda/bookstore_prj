@@ -1,0 +1,33 @@
+import stripe
+from django.conf import settings
+from django.shortcuts import render
+from django.views.generic import TemplateView
+
+stripe.api_key = settings.STRIPE_TEST_SECRET_KEY
+
+
+class OrderPageView(TemplateView):
+    template_name = 'orders/purchase.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['stripe_key'] = settings.STRIPE_TEST_PUBLISHABLE_KEY
+        return context
+
+
+def charge(request):
+    permission = Permission.objects.get(codename='special_status')
+
+    user = request.user
+    user.user_permission.add(permission)
+
+    if request.method == 'POST':
+        charge = stripe.Charge.create(
+            amount=3999,
+            currency='pln',
+            description='Purchase all books',
+            source=request.POST['stripeToken']
+        )
+        template_name = 'orders/charge.html'
+
+        return render(request, template_name)
