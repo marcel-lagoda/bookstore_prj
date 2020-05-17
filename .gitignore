@@ -306,3 +306,6 @@ pip-selfcheck.json
 
 ### Project notes ###
 notes/
+
+### Sensitive data ###
+docker-compose.override.yml
