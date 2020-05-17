@@ -1,0 +1,11 @@
+{% extends '_base.html' %}
+
+{% block title %}Charges{% endblock title %}
+
+{% block content %}
+<h2>
+  Thanks for your order!
+  You have now access to
+  <a href="{% url 'book_list' %}">All books</a>.
+</h2>
+{% endblock content %}
