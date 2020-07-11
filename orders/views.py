@@ -1,5 +1,6 @@
 import stripe
 from django.conf import settings
+from django.contrib.auth.models import Permission
 from django.shortcuts import render
 from django.views.generic import TemplateView
 
@@ -19,7 +20,7 @@ def charge(request):
     permission = Permission.objects.get(codename='special_status')
 
     user = request.user
-    user.user_permission.add(permission)
+    user.user_permissions.add(permission)
 
     if request.method == 'POST':
         charge = stripe.Charge.create(
