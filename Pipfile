@@ -13,6 +13,9 @@ django-allauth = "*"
 pillow = "*"
 stripe = "*"
 django-debug-toolbar = "*"
+gunicorn = "*"
+whitenoise = "==4.1.2"
+django-cors-headers = "*"
 
 [requires]
 python_version = "3.8"
