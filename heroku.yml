@@ -1,5 +1,5 @@
 setup:
-  addson:
+  addons:
     - plan: heroku-postgresql
   build:
     docker:
