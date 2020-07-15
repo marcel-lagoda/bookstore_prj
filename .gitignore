@@ -309,3 +309,6 @@ notes/
 
 ### Sensitive data ###
 docker-compose.override.yml
+docker-compose.yml
+docker-compose-prod.yml
+
